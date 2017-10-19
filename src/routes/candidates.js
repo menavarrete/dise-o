@@ -15,10 +15,11 @@ router.get('candidate', '/:id', async (ctx) => {
   const candidate = await ctx.orm.Candidate.findById(ctx.params.id);
   ctx.assert(candidate, 404, 'No encontré el candidato presidencial pedido', { id: ctx.params.id });
   //acá hay q agregar lo que se necesite para la vista,
-  const proposals = await ctx.orm.Proposal.findProposalByCandidate(ctx.params.id);
+  const proposals = await ctx.orm.Proposal.findProposalsByCandidate(ctx.params.id);
+  console.log(proposals);
   await ctx.render('candidates/show', {
     candidate,
-    proposal,
+    proposals,
   });
 });
 
