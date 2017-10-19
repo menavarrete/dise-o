@@ -32,8 +32,8 @@ module.exports = function defineCandidate(sequelize, DataTypes) {
   });
 
   Candidate.associate = function associate(models) {
-    Candidate.hasMany(models.Proposal, {foreignKey: 'id_candidate'});
+    Candidate.hasMany(models.Proposal, {foreignKey: 'candidateId'});
   };
-  
+
   return Candidate;
 };

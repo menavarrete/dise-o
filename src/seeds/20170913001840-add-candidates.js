@@ -14,11 +14,11 @@ module.exports = {
         updatedAt: new Date()
       });
     }
-    return queryInterface.bulkInsert('candidates', candidatesData);
+    return queryInterface.bulkInsert('Candidates', candidatesData);
   },
 
   down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('candidates', null, {});
+    return queryInterface.bulkDelete('Candidates', null, {});
 
   },
 };
