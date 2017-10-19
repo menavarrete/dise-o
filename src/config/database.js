@@ -8,7 +8,7 @@ const config = {
   },
   development: {
     extend: 'default',
-    database: 'wican_dev',
+    database: 'lecreo_dev',
   },
   test: {
     extend: 'default',

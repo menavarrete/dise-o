@@ -1,6 +1,6 @@
 module.exports = function defineProposal(sequelize, DataTypes) {
   const Proposal = sequelize.define('Proposal', {
-    id_candidate :  {
+    candidateId :  {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -32,13 +32,13 @@ module.exports = function defineProposal(sequelize, DataTypes) {
   });
 
   Proposal.associate = function associate(models) {
-    Proposal.belongsTo(models.Candidate, {foreignKey: 'id_candidate'});
+    Proposal.belongsTo(models.Candidate, {foreignKey: 'candidateId'});
   };
 
   Proposal.findProposalsByCandidate = function findProposalsByCandidate(elementId) {
     return Proposal.findAll({
       where: {
-        id_candidate: elementId,
+        candidateId: elementId,
       },
       include: ['Candidate'],
     });
