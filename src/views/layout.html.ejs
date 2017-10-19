@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>wican</title>
+    <title>Le Creo</title>
     <% if (env !== 'development') { %>
       <link rel="stylesheet" href="/assets/styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -17,18 +17,6 @@
     <header>
       <div id="logo">
         <img src="/assets/logo.png" alt="Logo" />
-      </div>
-      <div id="user-bar">
-        <% if (currentUser) { %>
-          <span class="name">Hola <%= currentUser.firstName %></span>
-          <form action="<%= destroySessionPath %>" method="post">
-            <input type="hidden" name="_method" value="delete" />
-            <input type="submit" value="Salir" />
-          </form>
-        <% } else { %>
-          <span class="name">Hola Invitado</span>
-          <a href="<%= newSessionPath %>">Inicia Sesión</a>
-        <% } %>
       </div>
     </header>
     <%- body %>
