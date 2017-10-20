@@ -7,7 +7,7 @@ module.exports = function defineCandidate(sequelize, DataTypes) {
         notEmpty: true,
       },
     },
-    shortname:  {
+    slogan:  {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -16,6 +16,20 @@ module.exports = function defineCandidate(sequelize, DataTypes) {
     },
     bio: DataTypes.TEXT,
     birthday:  {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    image:  {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    partyImage:  {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

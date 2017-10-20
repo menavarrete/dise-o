@@ -45,7 +45,7 @@ router.post('proposalCreate', '/', async (ctx) => {
     const proposal = await candidate.createProposal(ctx.request.body);
     ctx.redirect(ctx.router.url('proposals', { id: proposal.id }));
   } catch (validationError) {
-    await ctx.render('questions/new', {
+    await ctx.render('proposal/new', {
       candidate,
       proposal: ctx.orm.Proposal.build(ctx.request.body),
       errors: validationError.errors,
