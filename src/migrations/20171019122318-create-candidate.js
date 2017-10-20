@@ -10,13 +10,19 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      shortname: {
+      slogan: {
         type: Sequelize.STRING,
       },
       bio: {
         type: Sequelize.TEXT,
       },
       birthday: {
+        type: Sequelize.STRING,
+      },
+      image: {
+        type: Sequelize.STRING,
+      },
+      partyImage: {
         type: Sequelize.STRING,
       },
       political_party: {
