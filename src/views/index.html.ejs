@@ -66,7 +66,7 @@
         <!-- Right Column -->
         <div class="w3-twothird">
           <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-male fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Quién es?</h2>
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-male fa-fw w3-margin-right w3-xxlarge w3-text-teal"><a href="<%= candidatesPath(candidate) %>"></i><%=candidate.shortname%> <%=candidate.name%></a></h2>
             <div class="w3-container">
               <h5 class="w3-opacity"><b>Quién es?</b></h5>
               <p><%= candidate.bio %></p>
