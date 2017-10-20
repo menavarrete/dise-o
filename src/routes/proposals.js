@@ -2,23 +2,23 @@ const KoaRouter = require('koa-router');
 
 const router = new KoaRouter();
 
-router.get('proposals', '/', async (ctx) => {
-  const { candidate } = ctx.state;
+router.get('proposals/', '/', async (ctx) => {
+  const candidate  = ctx.state;
   const proposals = await candidate.getProposals();
   await ctx.render('proposals/index', {
     candidate,
     proposals,
-    buildProposalPath: proposal =>
-      ctx.router.url('proposal', { cId: proposal.Candidate.id, id: proposal.id }),
+    proposalPath: proposal =>
+      ctx.router.url('proposal', { id: proposal.id }),
   });
 });
 
 
 router.get('proposal', '/:id', async (ctx) => {
-    const { candidate } = ctx.state;
-    const proposal = await ctx.orm.Proposal.findById(ctx.params.id);
+    const candidate = ctx.state;
+    const proposal = await ctx.orm.proposal.findById(ctx.params.id);
 
-    await ctx.render('questions/show', { question,
+    await ctx.render('proposal/show', { 
       candidate,
       proposal, 
     });

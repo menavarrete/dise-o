@@ -3,7 +3,7 @@ const proposals = require('./proposals');
 
 const router = new KoaRouter();
 
-router.get('candidates', '/', async (ctx) => {
+router.get('/', async (ctx) => {
   const candidates = await ctx.orm.Candidate.findAll();
   await ctx.render('candidates/index', {
     candidates,
