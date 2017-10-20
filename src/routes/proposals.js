@@ -15,12 +15,17 @@ router.get('proposals/', '/', async (ctx) => {
 
 
 router.get('proposal', '/:id', async (ctx) => {
-    const candidate = ctx.state;
-    const proposal = await ctx.orm.proposal.findById(ctx.params.id);
-
-    await ctx.render('proposal/show', { 
+    const { candidate } = ctx.state;
+    const proposal = await ctx.orm.Proposal.findById(ctx.params.id);
+    const comments = await ctx.orm.Comment.findAll({
+        where: { element: ctx.params.id },
+      });
+    console.log(comments);
+    await ctx.render('proposals/show', {
       candidate,
-      proposal, 
+      proposal,
+      comments,
+      CommentPath: ctx.router.url('comment_Create', {id: proposal.id , cId: candidate.id}),
     });
   });
 
@@ -38,7 +43,7 @@ router.post('proposalCreate', '/', async (ctx) => {
   const { candidate } = ctx.state;
   try {
     const proposal = await candidate.createProposal(ctx.request.body);
-    ctx.redirect(ctx.router.url('proposals', { cId: proposal.id_candidate, id: proposal.id }));
+    ctx.redirect(ctx.router.url('proposals', { id: proposal.id }));
   } catch (validationError) {
     await ctx.render('questions/new', {
       candidate,
@@ -48,6 +53,19 @@ router.post('proposalCreate', '/', async (ctx) => {
     });
   }
 });
+
+router.post('comment_Create', '/:id/comment', async (ctx) => {
+  console.log('cacacacacacacaca\n\n\n\n');
+  const { candidate } = ctx.state;
+  const proposal = await ctx.orm.Proposal.findById(ctx.params.id);
+  await ctx.orm.Comment.create({element: proposal.id, body: ctx.request.body.comment });
+  ctx.redirect(ctx.router.url('proposal', {cId: candidate.id, id: proposal.id }));
+});
+
+
+module.exports = router;
+
+
 
 /*
 router.get('examQuestionsEdit', '/:id/edit', checkPermissions, async (ctx) => {
@@ -80,4 +98,3 @@ router.patch('examQuestionsUpdate', '/:id', checkPermissions, async (ctx) => {
 });
 
 */
-module.exports = router;

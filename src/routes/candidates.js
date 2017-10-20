@@ -18,13 +18,14 @@ router.get('candidate', '/:id', async (ctx) => {
   const proposals = await ctx.orm.Proposal.findProposalsByCandidate(ctx.params.id);
   console.log(proposals);
   await ctx.render('candidates/show', {
+    buildProposalPath: proposal => ctx.router.url('proposal', {cId: ctx.params.id, id: proposal.id }),
     candidate,
     proposals,
   });
 });
 
 router.get('candidateNew', '/new', async (ctx) => {
-    console.log("estoy acá");    
+    console.log("estoy acá");
     const candidate = ctx.orm.Candidate.build();
     await ctx.render('candidates/new', {
       candidate,
