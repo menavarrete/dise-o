@@ -26,27 +26,34 @@
     };
 </script>
 
+
+
+
+
+
+
+
 <body class="w3-light-grey">
 
 <!-- Page Container -->
 <div class="w3-content w3-margin-top margin-top" style="max-width:1400px;">
 
   <!-- The Grid -->
-  <div class="w3-row-padding">
+  <div class="w3-row">
 
     <!-- Left Column -->
-    <div class="w3-third">
+    <div class="w3-third w3-padding w3-animate-left">
 
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
-          <img src="https://specials-images.forbesimg.com/imageserve/58a10e494bbe6f0e55869f1c/416x416.jpg?background=000000&cropX1=209&cropX2=520&cropY1=85&cropY2=396" style="width:100%" alt="Avatar">
+          <img src="<%= candidate.image %>" style="width:100%" alt="Avatar">
           <div class="w3-display-bottomleft w3-container w3-text-black">
             <h2 class = "w3-text-white" ><%= candidate.name %></h2>
           </div>
         </div>
         <div class="w3-container">
           <br>
-          <p>"Como presidente, me esforzaré por promover, compatibilizar y proteger tres principios básicos: la libertad, la justicia y el progreso"<p>
+          <p><%= candidate.slogan %><p>
         </div>
       </div><br>
 
@@ -54,20 +61,19 @@
     </div>
 
     <!-- Right Column -->
-    <div class="w3-twothird">
+    <div class="w3-twothird w3-animate-right">
 
       <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Biografía</h2>
         <div class="w3-container">
           <h5 class="w3-opacity"><b>Biografía</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Actualized 2017 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Nació el <%= candidate.birthday %></h6>
           <p><%= candidate.bio%></p>
           <hr>
         </div>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <h5 class="w3-opacity"><b>Partido político</b></h5>
+          <p class="w3-text-center"><img src="<%= candidate.partyImage %>" style="width:10%" alt="Avatar" class="w3-margin-right"><%= candidate.political_party%></p>
           <hr>
         </div>
         <div class="w3-container">
@@ -99,6 +105,20 @@
 
   <!-- End Grid -->
   </div>
+
+  <div class="w3-container w3-card w3-white w3-animate-bottom">
+    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Propuestas</h2>
+    <% proposals.forEach((proposal) => { %>
+        <div class="w3-container">
+            <h3 class="w3-opacity"><b><%= proposal.title %></b></h3>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= proposal.date %></h6>
+            <p><%= proposal.description %></p>
+            <hr>
+        </div>
+      <% }) %>
+
+  </div>
+
 
   <!-- End Page Container -->
 </div>

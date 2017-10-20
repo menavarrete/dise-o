@@ -17,13 +17,13 @@
     <!-- Grid what are we -->
     <div class="w3-row-padding w3-padding-64 w3-container">
     <div class="w3-content">
-      <div class="w3-twothird">
+      <div class="w3-twothird w3-animate-left">
         <h1>¿Qué es #LeCreo?</h1>
         <h5 class="w3-padding-32">La plataforma donde tu percepción importa</h5>
         <p class="w3-text-grey">Durante las campañas y mandatos de los políticos, se llenan la boca de propuestas. ¿Qué tanto le crees?</p>
       </div>
       <div class="w3-third w3-center">
-        <img class="w3-padding" src="assets/like.png" style="width:100%" alt="Avatar">
+        <img class="w3-padding w3-animate-right" src="assets/like.png" style="width:100%" alt="Avatar">
       </div>
     </div>
   </div>
@@ -46,11 +46,11 @@
       <!-- The Grid -->
       <div class="w3-row-padding">
         <!-- Left Column -->
-        <div class="w3-third">
+        <div class="w3-third w3-animate-left">
           <div class="w3-white w3-text-grey w3-card-4">
             <a  href="<%= candidatesPath(candidate) %>">
               <div class="w3-display-container">
-                <img src="https://specials-images.forbesimg.com/imageserve/58a10e494bbe6f0e55869f1c/416x416.jpg?background=000000&cropX1=209&cropX2=520&cropY1=85&cropY2=396" style="width:100%" alt="Avatar">
+                <img src="<%= candidate.image %>" style="width:100%" alt="Avatar">
                 <div class="w3-display-bottomleft w3-container w3-text-black">
                   <h2 class = "w3-text-white" ><%= candidate.name %></h2>
                 </div>
@@ -58,19 +58,21 @@
             </a>
             <div class="w3-container">
               <br>
-              <p>"Como presidente, me esforzaré por promover, compatibilizar y proteger tres principios básicos: la libertad, la justicia y el progreso"<p>
+              <p><%= candidate.slogan %><p>
             </div>
           </div><br>
         <!-- End Left Column -->
         </div>
         <!-- Right Column -->
-        <div class="w3-twothird">
+        <div class="w3-twothird w3-animate-right">
           <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-male fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Quién es?</h2>
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-male fa-fw w3-margin-right w3-xxlarge w3-text-teal"><a href="<%= candidatesPath(candidate) %>"></i><%=candidate.shortname%> <%=candidate.name%></a></h2>
             <div class="w3-container">
               <h5 class="w3-opacity"><b>Quién es?</b></h5>
               <p><%= candidate.bio %></p>
               <hr>
+              <h5 class="w3-opacity"><b>Partido político</b></h5>
+              <p><%= candidate.political_party %></p>
             </div>
           </div>
           <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
