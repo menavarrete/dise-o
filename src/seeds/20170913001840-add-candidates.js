@@ -10,7 +10,7 @@ module.exports = {
       birthday: "1 de diciembre de 1949",
       political_party: "Chile Vamos",
       image:"http://oliviacrellin.com/wp-content/uploads/2015/08/sebastian-pinera-millonarios-chile.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://pbs.twimg.com/profile_images/811256213245718528/Z18xkj_T.jpg",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -21,7 +21,7 @@ module.exports = {
       birthday: "20 de diciembre de 1972",
       political_party: "Partido Demócrata Cristiano",
       image:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Emblem_of_the_Christian_Democrat_Party_of_Chile.svg/1200px-Emblem_of_the_Christian_Democrat_Party_of_Chile.svg.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -32,7 +32,7 @@ module.exports = {
       birthday: "18 de enero de 1966",
       political_party: "Independiente",
       image:"http://www.cnnchile.cl/sites/default/files/jose_antonio_kast_2.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/1200px-Flag_of_Chile.svg.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -43,7 +43,7 @@ module.exports = {
       birthday: "5 de marzo de 1953",
       political_party: "Partido Socialista de Chile",
       image:"https://media.biobiochile.cl/wp-content/uploads/2016/11/a_uno_711263-730x350.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Emblem_of_the_Socialist_Party_of_Chile.svg/1200px-Emblem_of_the_Socialist_Party_of_Chile.svg.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -54,7 +54,7 @@ module.exports = {
       birthday: "24 de diciembre de 1970",
       political_party: "Frente Amplio",
       image:"http://d2vpb0i3hb2k8a.cloudfront.net/wp-content/uploads/sites/7/2017/04/16/Beatriz-S%C3%A1nchez1-820x385.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"http://frente-amplio.cl/sites/all/themes/frente/img/footer_logo.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -65,7 +65,7 @@ module.exports = {
       birthday: "12 de junio de 1973",
       political_party: "Partido Progresista",
       image:"http://img.soy-chile.cl/Fotos/2017/01/22/file_20170122110952.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Emblema_Partido_Progresista_Chile_%282013%29.svg/1200px-Emblema_Partido_Progresista_Chile_%282013%29.svg.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -76,7 +76,7 @@ module.exports = {
       birthday: "25 de octubre de 1951",
       political_party: "Partido Comunista Chileno",
       image:"http://www.elclarin.cl/web/images/stories/2017/septiembre/Eduardoartesmedios-752x440.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Partido_Comunista_de_Chile.svg/1200px-Partido_Comunista_de_Chile.svg.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
@@ -87,7 +87,7 @@ module.exports = {
       birthday: "20 de noviembre de 1958",
       political_party: "País",
       image:"http://d2vpb0i3hb2k8a.cloudfront.net/wp-content/uploads/sites/7/2015/09/A_UNO_478302_2cb92_816x544-1.jpg",
-      partyImage:"http://www.laizquierdadiario.cl/IMG/arton81473.jpg",
+      partyImage:"https://upload.wikimedia.org/wikipedia/commons/1/14/Pais_partido.png",
       createdAt: new Date(),
       updatedAt: new Date()
     });
