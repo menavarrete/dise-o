@@ -55,7 +55,6 @@ router.post('proposalCreate', '/', async (ctx) => {
 });
 
 router.post('comment_Create', '/:id/comment', async (ctx) => {
-  console.log('cacacacacacacaca\n\n\n\n');
   const { candidate } = ctx.state;
   const proposal = await ctx.orm.Proposal.findById(ctx.params.id);
   await ctx.orm.Comment.create({element: proposal.id, body: ctx.request.body.comment });

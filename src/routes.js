@@ -17,5 +17,4 @@ router.use('/candidates', candidates.routes());
 router.use('/', index.routes());
 router.use('/hello', hello.routes());
 
-
 module.exports = router;

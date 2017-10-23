@@ -1,0 +1,19 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 20
+scenarios:
+  - name: 'Stress it'
+    flow:
+    - get:
+        url: "/"
+    - get:
+        url: "/#candidates"
+    - get:
+        url: "/candidates/1"
+    - post:
+        url: "/candidates/1/proposals/1"
+        json:
+            element: 1
+            body: "comment"
