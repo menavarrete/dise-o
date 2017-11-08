@@ -14,6 +14,8 @@ router.get('/', async (ctx) => {
 */
 
 router.get('candidate', '/:id', async (ctx) => {
+  const clientIP = ctx.headers['X-Forwarded-For'];
+  console.log("esta es la ipepecita ", clientIP);
   const candidate = await ctx.orm.Candidate.findById(ctx.params.id);
   ctx.assert(candidate, 404, 'No encontré el candidato presidencial pedido', { id: ctx.params.id });
   const a = 300;

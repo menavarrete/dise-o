@@ -7,9 +7,9 @@ const candidates = require('./routes/candidates');
 const router = new KoaRouter();
 
 router.use(async (ctx, next) => {
-  console.log(ctx.state);
+  //ctx.headers['X-Forwarded-For'] = '192.168.1.1';
   Object.assign(ctx.state, {
-    //currentUser: req.headers['x-forwarded-for'],
+    //currentUser: ctx.headers['x-forwarded-for'],
   });
   return next();
 });

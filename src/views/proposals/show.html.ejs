@@ -26,6 +26,24 @@
 
       </div>
 
+      <hr>
+      <% if (hasLecreo) { %>
+        <form action="<%= LecreoDestroyPath %>" method="post">
+          <div>
+            <input name="_method" type="hidden" value="delete" />
+          </div>
+          <div>
+            <input type="submit"  value="Ya no le creo"/>
+          </div>
+        </form>
+        <% } else { %>
+          <form action="<%= LecreoPath %>" method="post">
+            <div>
+              <input type="submit" value="Le creo"/>
+            </div>
+          </form>
+        <% };%>
+
       <h3> Comentarios </h3>
        <div>
         <% comments.forEach((comment) => { %>
@@ -41,6 +59,7 @@
           <input type="submit" name="create" value="Comentar" />
         </div>
       </form>
+
 
   </div>
 

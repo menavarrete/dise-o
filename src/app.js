@@ -83,6 +83,7 @@ render(app, {
 });
 
 
+
 // general handling for errors tha reach to this point
 app.use(async (ctx, next) => {
   try {
@@ -118,77 +119,77 @@ app.on('error', (error, ctx) => {
   }
 });
 
-// Server tests
-let server;
-let request;
-test('Start server', t => {
-    server = app.listen();
-    request = supertest(server);
-    t.end();
-})
-test('Shutdown server', t => {
-    server.close();
-    t.end();
-})
-
-// Routing tests
-test('Routes test: Index', t => {
-    request
-        .get('/')
-        .expect(200)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-test('Routes test: Candidates in index', t => {
-    request
-        .get('/#candidates')
-        .expect(200)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-test('Routes test: Show candidates', t => {
-    request
-        .get('/candidates')
-        .expect(404)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-test('Routes test: Candidate information', t => {
-    request
-        .get('/candidates/1')
-        .expect(200)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-test('Routes test: Unknown route', t => {
-    request
-        .get('/badbot')
-        .expect(404)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-
-// Proposals tests
-test('Proposals test: Comment on proposal', t => {
-    request
-        .post('/candidates/1/proposals/1/comment')
-        .field('element', 1)
-        .field('body', 'I am testing a comment on a proposal')
-        .expect(302)
-        .end((err, res) => {
-            if (err) throw err;
-            t.end();
-        });
-});
-
+//// Server tests
+//let server;
+//let request;
+//test('Start server', t => {
+//    server = app.listen();
+//    request = supertest(server);
+//    t.end();
+//})
+//test('Shutdown server', t => {
+//    server.close();
+//    t.end();
+//})
+//
+//// Routing tests
+//test('Routes test: Index', t => {
+//    request
+//        .get('/')
+//        .expect(200)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//test('Routes test: Candidates in index', t => {
+//    request
+//        .get('/#candidates')
+//        .expect(200)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//test('Routes test: Show candidates', t => {
+//    request
+//        .get('/candidates')
+//        .expect(404)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//test('Routes test: Candidate information', t => {
+//    request
+//        .get('/candidates/1')
+//        .expect(200)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//test('Routes test: Unknown route', t => {
+//    request
+//        .get('/badbot')
+//        .expect(404)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//
+//// Proposals tests
+//test('Proposals test: Comment on proposal', t => {
+//    request
+//        .post('/candidates/1/proposals/1/comment')
+//        .field('element', 1)
+//        .field('body', 'I am testing a comment on a proposal')
+//        .expect(302)
+//        .end((err, res) => {
+//            if (err) throw err;
+//            t.end();
+//        });
+//});
+//
 module.exports = app;

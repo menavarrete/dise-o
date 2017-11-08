@@ -15,17 +15,21 @@ router.get('proposals/', '/', async (ctx) => {
 
 
 router.get('proposal', '/:id', async (ctx) => {
+    const Lecreo = await ctx.orm.Lecreo.findLecreoByIp(ctx.headers['X-Forwarded-For'])
     const { candidate } = ctx.state;
     const proposal = await ctx.orm.Proposal.findById(ctx.params.id);
     const comments = await ctx.orm.Comment.findAll({
         where: { element: ctx.params.id },
       });
-    console.log(comments);
+    console.log(Lecreo);
     await ctx.render('proposals/show', {
       candidate,
       proposal,
       comments,
+      hasLecreo : Lecreo.length > 0,
       CommentPath: ctx.router.url('comment_Create', {id: proposal.id , cId: candidate.id}),
+      LecreoPath: ctx.router.url('Lecreo_Create', {id: proposal.id , cId: candidate.id}),
+      LecreoDestroyPath : ctx.router.url('Lecreo_Destroy', {id: proposal.id , cId: candidate.id})
     });
   });
 
@@ -61,6 +65,19 @@ router.post('comment_Create', '/:id/comment', async (ctx) => {
   ctx.redirect(ctx.router.url('proposal', {cId: candidate.id, id: proposal.id }));
 });
 
+router.post('Lecreo_Create', '/:id/lecreocreate', async (ctx) => {
+  const { candidate } = ctx.state;
+  console.log('entro aca\n')
+  await ctx.orm.Lecreo.create({ip: ctx.headers['X-Forwarded-For'], ProposalId: ctx.params.id});
+  ctx.redirect(ctx.router.url('proposal', {cId: candidate.id, id: ctx.params.id }));
+});
+
+router.delete('Lecreo_Destroy', '/:id/lecreodestroy', async (ctx) => {
+  const { candidate } = ctx.state;
+  const lecreo = await ctx.orm.Lecreo.findOne({ where: {ip: ctx.headers['X-Forwarded-For'], ProposalId: ctx.params.id} });
+  lecreo.destroy();
+  ctx.redirect(ctx.router.url('proposal', {cId: candidate.id, id: ctx.params.id }));
+});
 
 module.exports = router;
 
