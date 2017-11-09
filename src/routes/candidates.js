@@ -18,19 +18,17 @@ router.get('candidate', '/:id', async (ctx) => {
   console.log("esta es la ipepecita ", clientIP);
   const candidate = await ctx.orm.Candidate.findById(ctx.params.id);
   ctx.assert(candidate, 404, 'No encontré el candidato presidencial pedido', { id: ctx.params.id });
-  const a = 300;
-  const data = [{"label":"one", "value":100},
-  {"label":"two", "value":50},
-  {"label":"three", "value":30}];
   //acá hay q agregar lo que se necesite para la vista,
   const proposals = await ctx.orm.Proposal.findProposalsByCandidate(ctx.params.id);
+  for (var i in proposals){
+    proposals[i].Lecreo = await ctx.orm.Lecreo.howManyLecreo(proposals[i].id, 1);
+    proposals[i].NoLecreo = await ctx.orm.Lecreo.howManyLecreo(proposals[i].id, 0);
+  }
   //console.log(proposals);
   await ctx.render('candidates/show', {
     buildProposalPath: proposal => ctx.router.url('proposal', {cId: ctx.params.id, id: proposal.id }),
     candidate,
     proposals,
-    a,
-    data
   });
 });
 

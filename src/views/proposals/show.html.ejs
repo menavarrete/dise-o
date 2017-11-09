@@ -32,11 +32,11 @@
         <form action="<%= LecreoChangePath %>" method="post">
           <% if (Lecreo.value == 1) {%>
           <div>
-            <button class="w3-button w3-red">Ya no le creo</button>
+            <button class="w3-button w3-red">&#128078; Ya no le creo</button>
           </div>
           <% } else { %>
             <div>
-              <button class="w3-button w3-green">Le creo</button>
+              <button class="w3-button w3-green"> &#128077; Le creo</button>
             </div>
             <% }; %>
         </form>
@@ -46,7 +46,7 @@
                 <input type="hidden" value="1" name="value" />
               </div>
             <div>
-              <button class="w3-button w3-green">Le creo</button>
+              <button class="w3-button w3-green"> &#128077; Le creo</button>
             </div>
           </form>
           <form action="<%= LecreoPath %>" method="post">
@@ -54,11 +54,11 @@
                   <input type="hidden" value="0" name="value" />
                 </div>
               <div>
-                <button class="w3-button w3-red">No le creo</button>
+                <button class="w3-button w3-red">&#128078; No le creo</button>
               </div>
             </form>
         <% };%>
-
+       <br>
       <h3> Comentarios </h3>
        <div>
         <% comments.forEach((comment) => { %>
