@@ -14,11 +14,18 @@ const config = {
     extend: 'default',
     database: 'wican_test',
   },
-  production: {
+  production: process.env.DATABASE_URL ? {
+    username: process.env.DATABASE_URL.toString().split('@')[0].split('://')[1].split(':')[0],
+    password: process.env.DATABASE_URL.toString().split('@')[0].split('://')[1].split(':')[1],
+    dialect: 'postgres',
+    host: process.env.DATABASE_URL.toString().split('@')[1].split(':')[0],
+    database: process.env.DATABASE_URL.toString().split('@')[1].split(':')[1].split('/')[1],
+  } : {
     extend: 'default',
-    use_env_variable: 'DATABASE_URL',
+    database: 'lecreo_prod',
   },
 };
+
 
 Object.keys(config).forEach((configKey) => {
   const configValue = config[configKey];
