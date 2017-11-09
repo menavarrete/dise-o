@@ -12,7 +12,7 @@ const config = {
   },
   test: {
     extend: 'default',
-    database: 'wican_test',
+    database: 'lecreo_test',
   },
   production: process.env.DATABASE_URL ? {
     username: process.env.DATABASE_URL.toString().split('@')[0].split('://')[1].split(':')[0],
