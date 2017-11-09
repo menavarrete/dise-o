@@ -91,7 +91,7 @@
                 <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= proposal.date %></h6>
                 <p><%= proposal.description %></p>
                 <center>
-                <script>createChart("", <%= proposal.Lecreo.count %>, <%= proposal.NoLecreo.count %>, <%=proposal.id%>)</script>
+                <script>createChart("", <%= proposal.Lecreo.count || 0 %>, <%= proposal.NoLecreo.count || 0 %>, <%=proposal.id%>)</script>
                 <div id="<%=proposal.id %>" style="width: 500px; height: 350px;"></div>
                 </center>
                 <hr>

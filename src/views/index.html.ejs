@@ -73,14 +73,17 @@
               <hr>
               <h5 class="w3-opacity"><b>Partido político</b></h5>
               <p><%= candidate.political_party %></p>
+              <hr>
+              <p>"<%= candidate.Lecreo %>" personas han creído en alguna de sus propuestas</p>
+              <p>"<%= candidate.NoLecreo %>" personas no han creído en alguna de sus propuestas </p>
             </div>
           </div>
           <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
             <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-search fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Le creen?</h2>
             <div class="w3-container">
               <div class="w3-light-grey w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">
-                  <div class="w3-center w3-text-white">50%</div>
+                <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:<%= (candidate.Lecreo/(candidate.Lecreo + candidate.NoLecreo))*100 || 100 %>%">
+                  <div class="w3-center w3-text-white"> <%= Math.round((candidate.Lecreo/(candidate.Lecreo + candidate.NoLecreo))*100) || 100 %>  %</div>
                 </div>
               </div>
               <hr>
