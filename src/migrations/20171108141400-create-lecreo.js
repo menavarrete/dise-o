@@ -13,6 +13,9 @@ module.exports = {
       ip: {
         type: Sequelize.STRING,
       },
+      value: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

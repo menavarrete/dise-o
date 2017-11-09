@@ -113,7 +113,7 @@ app.use(routes.routes());
 // 'error' event will be emitted for every error. We cannot respond to the client from here since
 // this happens after the response has been generated
 app.on('error', (error, ctx) => {
-  const logEnabled = false;
+  const logEnabled = true;
   if (logEnabled) {
     console.error(error, ctx);
   }

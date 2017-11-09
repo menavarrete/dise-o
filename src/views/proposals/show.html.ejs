@@ -25,23 +25,38 @@
             </div>
 
       </div>
-
+      <h3> Esta propuesta tiene <%= nLecreo.count%> Le creo y <%= nNoLecreo.count %> No le creo </h3>
       <hr>
       <% if (hasLecreo) { %>
-        <form action="<%= LecreoDestroyPath %>" method="post">
+        <h1><% Lecreo.value %></h1>
+        <form action="<%= LecreoChangePath %>" method="post">
+          <% if (Lecreo.value == 1) {%>
           <div>
-            <input name="_method" type="hidden" value="delete" />
+            <button class="w3-button w3-red">Ya no le creo</button>
           </div>
-          <div>
-            <input type="submit"  value="Ya no le creo"/>
-          </div>
+          <% } else { %>
+            <div>
+              <button class="w3-button w3-green">Le creo</button>
+            </div>
+            <% }; %>
         </form>
         <% } else { %>
           <form action="<%= LecreoPath %>" method="post">
             <div>
-              <input type="submit" value="Le creo"/>
+                <input type="hidden" value="1" name="value" />
+              </div>
+            <div>
+              <button class="w3-button w3-green">Le creo</button>
             </div>
           </form>
+          <form action="<%= LecreoPath %>" method="post">
+              <div>
+                  <input type="hidden" value="0" name="value" />
+                </div>
+              <div>
+                <button class="w3-button w3-red">No le creo</button>
+              </div>
+            </form>
         <% };%>
 
       <h3> Comentarios </h3>
