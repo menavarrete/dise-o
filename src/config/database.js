@@ -1,3 +1,4 @@
+
 const config = {
   default: {
     username: process.env.DB_USERNAME,
@@ -14,18 +15,11 @@ const config = {
     extend: 'default',
     database: 'lecreo_test',
   },
-  production: process.env.DATABASE_URL ? {
-    username: process.env.DATABASE_URL.toString().split('@')[0].split('://')[1].split(':')[0],
-    password: process.env.DATABASE_URL.toString().split('@')[0].split('://')[1].split(':')[1],
-    dialect: 'postgres',
-    host: process.env.DATABASE_URL.toString().split('@')[1].split(':')[0],
-    database: process.env.DATABASE_URL.toString().split('@')[1].split(':')[1].split('/')[1],
-  } : {
+  production: {
     extend: 'default',
-    database: 'lecreo_prod',
+    use_env_variable: 'DATABASE_URL',
   },
 };
-
 
 Object.keys(config).forEach((configKey) => {
   const configValue = config[configKey];
