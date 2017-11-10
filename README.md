@@ -1,6 +1,9 @@
 Diseño Detallado de Software
 ======
 
+Visit us at our [site](https://lecreo.herokuapp.com/)
+
+
 ## Getting started
 
 Clone repository
@@ -14,6 +17,8 @@ Install dependencies
 Run App
 
 `yarn start`
+
+Note that in order to correctly use the voting system, the app must be running through a proxy-server, which works perfectly on our [site](https://lecreo.herokuapp.com/)
 
 
 ## Dependencies
