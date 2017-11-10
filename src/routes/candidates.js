@@ -14,7 +14,7 @@ router.get('/', async (ctx) => {
 */
 
 router.get('candidate', '/:id', async (ctx) => {
-  const clientIP = ctx.headers['X-Forwarded-For'];
+  const clientIP = ctx.headers['x-forwarded-for'];
   console.log("\n\n\n\n\n\n\n\n\n");
   console.log("IP: ", clientIP);
   console.log(ctx.headers);
