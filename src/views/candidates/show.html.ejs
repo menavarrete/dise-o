@@ -87,7 +87,7 @@
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Propuestas</h2>
         <% proposals.forEach((proposal) => { %>
             <div class="w3-container">
-                <h3 class="w3-opacity"><b><li><a href="<%= buildProposalPath(proposal) %>"><%= proposal.title %>></a></li></b></h3>
+                <h3 class="w3-opacity"><b><li><a href="<%= buildProposalPath(proposal) %>"><%= proposal.title %></a></li></b></h3>
                 <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= proposal.date %></h6>
                 <p><%= proposal.description %></p>
                 <center>
@@ -110,4 +110,3 @@
 </div>
 
 </body>
-
