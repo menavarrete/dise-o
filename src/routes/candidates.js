@@ -16,7 +16,7 @@ router.get('/', async (ctx) => {
 router.get('candidate', '/:id', async (ctx) => {
   const clientIP = ctx.headers['x-forwarded-for'];
   console.log("\n\n\n\n\n\n\n\n\n");
-  console.log("IP: ", clientIP);
+  console.log("IPECITA: ", clientIP);
   console.log(ctx.headers);
   console.log("\n\n\n\n\n\n\n\n\n");
   const candidate = await ctx.orm.Candidate.findById(ctx.params.id);
